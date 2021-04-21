@@ -1,0 +1,147 @@
+@import "../function";
+@import "../mixins";
+
+$featured-color-1: #2d2b27;
+$featured-color-2: #1a1a1a;
+
+//-----===== 7 #featured ====-----//
+
+#featured{
+  margin-bottom: 90px;
+
+  & .featured__title{
+    @include mix-font($fz:26px,$fw:600,$lh:28px,$ls:100);
+    color: $featured-color-1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  & .categories{
+    padding-top: 40px;
+  }
+
+  & .featured__block{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 0 40px 0;
+
+    & .featured__item{
+      flex: 0 1 270px;
+
+      & .item__img{
+        display: block;
+        margin: 0 0 30px 0;
+      }
+
+      & .item__title{
+        @include mix-font($fz:15px,$fw:700,$lh:18px);
+        color: $featured-color-2;
+        margin: 0 0 5px 0;
+      }
+
+      & .item__brand{
+        @include mix-font($fz:15px,$fw:400,$lh:18px);
+        color: #898989;
+        margin: 0 0 6px 0;
+      }
+
+      & .item__price{
+        @include mix-font($fz:15px,$fw:700,$lh:18px);
+        color: $featured-color-2;
+
+        s{
+          font-weight: 400;
+          margin: 0 20px 0 0;
+        }
+      }
+    }
+  }
+
+  & .featured_btn{
+    $value: #ffffff, 60px, 170px, #1a1a1a, 12px, 18px, 50, 21px;
+    @include mix-button($value...){
+      border: 2px solid #d9c8aa;
+    };
+    margin: 0 auto;
+
+    &:active{
+      box-shadow:inset 0 0 10px rgba(0,0,0, 0.4);
+    }
+  }
+
+  & .owl-nav{
+
+    & .owl-prev, & .owl-next{
+      position: absolute;
+      background: url("../img/sprite-arrow2.png") 0 0 no-repeat;
+      width: 49px;
+      height: 49px;
+      left: -70px;
+      top: 40%;
+      transform: translateY(-50%);
+    }
+
+    & .owl-prev{
+
+      &:hover{
+        background-position: 0 -49px;
+      }
+    }
+
+    & .owl-next{
+      background-position: -49px 0;
+      left: auto;
+      right: -70px;
+
+      &:hover{
+        background-position: -49px -49px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1318px){
+
+  #featured{
+
+    & .carousel{
+      width: calc(100% - 130px);
+      margin: 0 auto;
+    }
+  }
+
+}
+
+@media (max-width: 1200px){
+
+  #featured{
+
+    & .featured__block{
+      justify-content: space-around;
+
+      & .featured__item{
+        margin: 0 8px 40px 8px;
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 478px){
+
+  #featured{
+    margin-bottom: 50px;
+    & .featured__block{
+
+
+      & .featured__item{
+        margin: 0 0 40px 0;
+      }
+    }
+
+  }
+
+}

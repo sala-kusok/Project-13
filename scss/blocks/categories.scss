@@ -1,0 +1,67 @@
+@import "../function";
+@import "../mixins";
+
+$categories-color: #2d2b27;
+
+//-----===== 3 .categories ====-----//
+
+.categories{
+  padding-top: 80px;
+  padding-bottom: 50px;
+
+  & .categories__list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+
+    & .categories__item{
+      @include mix-font($fz:19px,$fw:600,$lh:25px,$ls:100);
+      margin: 0 45px 0 0;
+
+      &:last-child{
+        margin-right: 0;
+      }
+
+      & .categories__link{
+        color: $categories-color;
+        text-decoration: none;
+        
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 949px){
+
+  & .categories{
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+    & .categories__list{
+      justify-content: space-evenly;
+
+      & .categories__item{
+        @include mix-font($fz:18px,$fw:600,$lh:25px,$ls:100);
+        margin: 0 10px 10px;
+      }
+
+    }
+  }
+
+}
+
+@media (max-width: 482px){
+
+  & .categories{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    
+  }
+
+}
+

@@ -1,0 +1,21 @@
+@import "../function";
+@import "../mixins";
+
+//-----===== 11 #footer ====-----//
+
+#footer{
+
+  & .footer__wrap{
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    p{
+      @include mix-font($fz:14px,$fw:300,$lh:20px);
+      color: #727272;
+      margin: 0 0 45px 0;
+    }
+
+  }
+
+}

@@ -1,0 +1,209 @@
+@import "../function";
+@import "../mixins";
+
+$offers-color: #2d2b27;
+
+//-----===== 4 #offers ====-----//
+
+#offers{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+
+  & .offers__left{
+    flex: 0 0 fun-width-interest(270px,1170px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  & .offers__center{
+    flex: 0 0 fun-width-interest(470px,1170px);
+  }
+
+  & .offers__right{
+    flex: 0 0 fun-width-interest(370px,1170px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  & .offers__element{
+    position: relative;
+    display: block;
+    color: $offers-color;
+
+    & .offers__img{
+      display: block;
+    }
+
+    & .offers__stocks{
+      position: absolute;
+      width: 100%;
+      bottom: 25px;
+      text-align: center;
+
+      & .offers__two-get{
+        @include mix-font($fz:22px,$fw:700,$lh:25px,$ls:75);
+      }
+    }
+
+    & .offers__info{
+      position: absolute;
+      top: 25%;
+      left: 8%;
+
+      & .offers__category{
+        @include mix-font($fz:13px,$fw:500,$lh:16px,$ls:75);
+        margin: 0 0 18px 0;
+      }
+
+      & .offers__title{
+        @include mix-font($fz:19px,$fw:700,$lh:22px,$ls:75);
+        margin: 0 0 37px 0;
+      }
+
+      & .offers__btn{
+        @include mix-button();
+      }
+    }
+
+    & .offers__new{
+      position: absolute;
+      display: block;
+      top: 3%;
+      right: 3%;
+      background: $offers-color;
+      padding: 4px 10px;
+      @include mix-font($fz:11px,$fw:400,$lh:16px,$ls:50);
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+
+      &::before{
+        content: '';
+        border-top: 8px solid transparent;
+        border-left: 8px solid $offers-color;
+        border-bottom: 8px solid transparent;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+      }
+    }
+
+    &--glasses{
+
+      & .offers__stocks{
+
+        & .offers__two-get{
+          @include mix-font($fz:13px,$fw:700,$lh:20px,$ls:50);
+          text-transform: uppercase;
+        }
+      }
+
+    }
+  }
+
+}
+
+@media (max-width: 1023px){
+
+  #offers{
+    justify-content: space-evenly;
+
+    & .offers__left{
+      flex: 0 0 auto;
+      order: 3;
+    }
+
+    & .offers__center{
+      flex: 0 0 auto;
+      order: 1;
+    }
+
+    & .offers__right{
+      flex: 0 0 auto;
+      order: 2;
+    }
+
+    & .offers__element{
+      margin: 0 10px 20px;
+    }
+
+  }
+
+}
+
+@media (max-width: 717px){
+
+  #offers{
+
+
+    & .offers__left{
+      order: 3;
+    }
+
+    & .offers__right{
+      order: 2;
+    }
+
+  }
+
+}
+
+@media (max-width: 510px){
+
+  #offers{
+
+    & .offers__center{
+      flex: 0 1 auto;
+    }
+
+    & .offers__right{
+    }
+
+    & .offers__element{
+      margin: 0 0 20px 0;
+    }
+
+  }
+
+}
+
+@media (max-width: 401px){
+
+  #offers{
+
+    & .offers__center{
+      flex: 0 1 auto;
+    }
+
+    & .offers__right{
+      flex: 0 1 auto;
+    }
+
+  }
+
+}
+
+@media (max-width: 350px){
+
+  #offers{
+
+    & .offers__element{
+
+      & .offers__info{
+
+        & .offers__title{
+          @include mix-font($fz:17px,$fw:700,$lh:22px,$ls:75);
+          margin: 0 0 25px 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}

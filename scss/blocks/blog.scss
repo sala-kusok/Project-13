@@ -1,0 +1,152 @@
+@import "../function";
+@import "../mixins";
+
+$blog-color-1: #2d2b27;
+$blog-color-2: #1a1a1a;
+
+//-----===== 9 #blog ====-----//
+
+#blog{
+
+  & .blog__title{
+    @include mix-font($fz:26px,$fw:600,$lh:28px,$ls:100);
+    color: $blog-color-1;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 55px 0;
+  }
+
+  & .blog__block{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & .blog__item{
+      flex: 0 0 fun-width-interest(570px,1170px);
+
+      & .item__img{
+        display: block;
+      }
+
+      & .item__info{
+        width: fun-width-interest(500px, 570px);
+        margin: 0 auto 0 auto;
+        background: #fff;
+        text-align: center;
+        padding: 20px 20px;
+        transform: translateY(-35px);
+        box-sizing: border-box;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.1);
+
+        & .item__title{
+          @include mix-font($fz:18px,$fw:600,$lh:22px,$ls:50);
+          text-transform: uppercase;
+          margin: 0 0 7px 0;
+          
+          & a{
+            text-decoration: none;
+            color: $blog-color-1;
+            
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+
+        }
+
+        & .item__date{
+          @include mix-font($fz:14px,$fw:400,$lh:18px,$fs:italic);
+          color: #7d7d7d;
+        }
+
+      }
+
+    }
+
+  }
+
+  & .owl-nav{
+
+    & .owl-prev, & .owl-next{
+      position: absolute;
+      background: url("../img/sprite-arrow2.png") 0 0 no-repeat;
+      width: 49px;
+      height: 49px;
+      left: -70px;
+      top: 40%;
+      transform: translateY(-50%);
+    }
+
+    & .owl-prev{
+
+      &:hover{
+        background-position: 0 -49px;
+      }
+    }
+
+    & .owl-next{
+      background-position: -49px 0;
+      left: auto;
+      right: -70px;
+
+      &:hover{
+        background-position: -49px -49px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1318px){
+
+  #blog{
+
+    & .carousel-blog{
+      width: calc(100% - 130px);
+      margin: 0 auto;
+    }
+  }
+
+}
+
+@media (max-width: 855px){
+
+
+  #blog{
+
+    & .blog__block{
+      justify-content: center;
+
+      & .blog__item{
+        flex: 0 1 auto;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 490px){
+
+
+  #blog{
+
+    & .blog__block{
+
+
+      & .blog__item{
+
+        & .item__info{
+
+          & .item__title{
+            font-size: fun-px-tp-em(16px);
+          }
+
+          & .item__date{
+            font-size: fun-px-tp-em(12px);
+          }
+        }
+      }
+    }
+
+  }
+}

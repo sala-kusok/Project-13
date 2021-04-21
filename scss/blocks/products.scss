@@ -1,0 +1,114 @@
+@import "../function";
+@import "../mixins";
+
+$products-color-1: #2d2b27;
+$products-color-2: #1a1a1a;
+
+//-----===== 6 #products ====-----//
+
+#products{
+  margin-bottom: 100px;
+
+  & .products__title{
+    @include mix-font($fz:26px,$fw:600,$lh:28px,$ls:100);
+    margin: 0 0 25px 0;
+    color: $products-color-1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  & .products__subtitle{
+    @include mix-font($fz:14px,$fw:400,$lh:16px,$ls:400);
+    margin: 0 0 40px 0;
+    color: $products-color-2;
+    text-align: center;
+  }
+
+  & .products__block{
+    display: flex;
+    justify-content: space-between;
+
+    & .products__element{
+      flex: 0 0 fun-width-interest(370px,1170px);
+      position: relative;
+
+      & img{
+        display: block;
+      }
+
+      & .products__btn{
+        position: absolute;
+        width: 100%;
+        bottom: 8%;
+
+        & a{
+          $value: #171717, 65px, 170px, #ffffff, 13px, 18px, 60, 23px;
+          @include mix-button($value...);
+          margin: 0 auto;
+        }
+      }
+
+    }
+
+  }
+
+  & .owl-nav{
+
+    & .owl-prev, & .owl-next{
+      position: absolute;
+      background: url("../img/arr1.png") 0 0 no-repeat;
+      width: 43px;
+      height: 112px;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    & .owl-prev{
+
+      &:hover{
+      }
+    }
+
+    & .owl-next{
+      background: url("../img/arr2.png") 0 0 no-repeat;
+      left: auto;
+      right: -70px;
+
+      &:hover{
+
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1318px){
+
+  #products{
+
+    & .carousel-products{
+      width: calc(100% - 130px);
+      margin: 0 auto;
+    }
+  }
+
+}
+
+@media (max-width: 717px){
+
+  #products{
+    margin-bottom: 50px;
+
+    & .products__block{
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      & .products__element{
+        flex: 0 1 auto;
+        margin: 0 0 15px 0;
+      }
+    }
+
+  }
+}

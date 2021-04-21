@@ -1,0 +1,87 @@
+@import "variables";
+@import "function";
+
+//-----===== Мексины ====-----//
+
+// ------- Устанавливает максимальную и минимальную ширину сайта ------- //
+
+@mixin mix-min-max($min-width, $max-width, $padding) {
+  min-width: $min-width;
+  max-width: $max-width;
+  padding: 0 $padding;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+// ------- Устанавливает максимальную и минимальную ширину сайта ------- //
+
+// ------- Работа со шриштом ------- //
+
+@mixin mix-font($fz:16px, $fw:$font-weight-body, $lh:$line-height-body, $fs:$font-style-body,$ls: 0, $all:false){
+
+  @if $all == false{
+    $space: fun-letter-spacing($fz,$ls);
+    $fz: fun-px-tp-em($fz);
+
+    @if  $font-style-body != $fs{
+      font-style: $fs;
+    }
+    @if  $font-weight-body != $fw{
+      font-weight: $fw;
+    }
+    @if  $font-size-body != $fz{
+      font-size: $fz;
+    }
+    @if $line-height-body != $lh{
+      line-height: $lh;
+    }
+    @if $ls != $space{
+      letter-spacing: $space;
+    }
+  }
+
+  @if $all == true{
+    font-style: $fs;
+    font-weight: $fw;
+    font-size: fun-px-tp-em($fz);
+    line-height: $lh;
+    letter-spacing: fun-letter-spacing($fz,$ls);
+  }
+
+}
+
+// ------- Работа со шриштом ------- //
+
+// ------- Граница ------- //
+
+@mixin mix-out($color: red){
+  outline: 1px solid $color;
+
+}
+// ------- Кнопка ------- //
+
+@mixin mix-button($bg:#171717, $br:40px, $w:114px, $col:#fff, $fz:9px, $lh:13px, $ls:60, $ptb:13px){
+
+  width: $w;
+  background: $bg;
+  border-radius: $br;
+  color: $col;
+  font-size: fun-px-tp-em($fz);
+  line-height: $lh;
+  letter-spacing: fun-letter-spacing($ls);
+  display: block;
+  padding: $ptb 0;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.2s;
+  @content;
+
+  &:hover{
+    background: lighten($bg, 15%);
+  }
+
+}
+
+// ------- Кнопка ------- //
+
